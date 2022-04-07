@@ -24,8 +24,8 @@ function Products({ cat, filters, sort }) {
       try {
         const res = await axios.get(
           cat
-            ? `http://localhost:5000/api/products?${cat}`
-            : "http://localhost:5000/api/products"
+            ? `https://shopcart-api.herokuapp.com/api/products?${cat}`
+            : "https://shopcart-api.herokuapp.com/api/products"
         );
         setProducts(res.data);
       } catch (err) {}
