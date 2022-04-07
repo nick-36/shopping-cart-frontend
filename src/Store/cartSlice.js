@@ -34,7 +34,6 @@ const cartSlice = createSlice({
       toast.warning(`Item removed`, {
         position: "bottom-left",
       });
-      // state.total -= action.payload.price;
     },
     increaseQty: (state, action) => {
       const product = state.products.find((p) => p._id === action.payload);
