@@ -98,7 +98,9 @@ function Navbar(props) {
             </SearchContainer>
           </Language>
         </Left>
-        <Center>AXIOS.</Center>
+        <Center>
+          <Link to="/">AXIOS.</Link>
+        </Center>
         <Right>
           {!isAuthenticated ? (
             <>
