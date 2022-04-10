@@ -95,7 +95,7 @@ function Register(props) {
       <Wrapper>
         <Title>CREATE AN ACCOUNT</Title>
 
-        <Form onClick={handleSubmit}>
+        <Form>
           <Input type="text" placeholder="first name" />
           <Input type="text" placeholder="last name" />
           <Input
@@ -122,7 +122,7 @@ function Register(props) {
           By creating an account, I consent to the processing of my personal
           data in accordance with the <b>PRIVACY POLICY</b>
         </Agreement>
-        <Button>CREATE</Button>
+        <Button onClick={handleSubmit}>CREATE</Button>
       </Wrapper>
     </Container>
   );
