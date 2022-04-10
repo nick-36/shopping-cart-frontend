@@ -99,7 +99,9 @@ function Navbar(props) {
           </Language>
         </Left>
         <Center>
-          <Link to="/">AXIOS.</Link>
+          <Link to="/" style={{ textDecoration: "none", color: "#111111" }}>
+            AXIOS.
+          </Link>
         </Center>
         <Right>
           {!isAuthenticated ? (

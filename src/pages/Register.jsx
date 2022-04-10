@@ -1,5 +1,7 @@
+import { useState } from "react";
 import styled from "styled-components";
 import { device } from "../responsive";
+import { publicRequest } from "../requestMethods";
 
 const Container = styled.div`
   width: 100%;
@@ -70,17 +72,50 @@ const Button = styled.button`
 `;
 
 function Register(props) {
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const newUser = {
+      username,
+      email,
+      password,
+    };
+    try {
+      await publicRequest.post(`/auth/register`, newUser);
+      window.location.replace("/login");
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <Container>
       <Wrapper>
         <Title>CREATE AN ACCOUNT</Title>
 
-        <Form>
+        <Form onClick={handleSubmit}>
           <Input type="text" placeholder="first name" />
           <Input type="text" placeholder="last name" />
-          <Input type="text" placeholder="username" />
-          <Input type="email" placeholder="email" />
-          <Input type="password" placeholder="password" />
+          <Input
+            type="text"
+            onChange={(e) => setUsername(e.target.value)}
+            value={username}
+            placeholder="username"
+          />
+          <Input
+            type="email"
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+            placeholder="email"
+          />
+          <Input
+            type="password"
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+            placeholder="password"
+          />
           <Input type="passowrd" placeholder="confirm password" />
         </Form>
         <Agreement>
